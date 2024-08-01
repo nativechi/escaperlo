@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directional Lock</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            font-size: 24px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #message {
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Directional Code</h2>
+    <button onclick="addDirection('U')">Up</button>
+    <button onclick="addDirection('D')">Down</button>
+    <button onclick="addDirection('L')">Left</button>
+    <button onclick="addDirection('R')">Right</button>
+    <button onclick="checkCode()">Unlock</button>
+    <p id="codeDisplay"></p>
+    <p id="message"></p>
+    <script>
+        const correctCode = 'UDLR'; // Set your directional code here
+        let enteredCode = '';
+        
+        function addDirection(direction) {
+            enteredCode += direction;
+            document.getElementById('codeDisplay').textContent = enteredCode;
+        }
+
+        function checkCode() {
+            const message = document.getElementById('message');
+            if (enteredCode === correctCode) {
+                message.textContent = 'Unlocked!';
+                message.style.color = 'green';
+                // Redirect to the next Genially slide
+                parent.window.location.href = 'your-genially-url-here'; // Set your Genially URL here
+            } else {
+                message.textContent = 'Incorrect Code';
+                message.style.color = '#d9534f';
+            }
+        }
+    </script>
+</body>
+</html>
