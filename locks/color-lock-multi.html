@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Lock</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            width: 100px;
+            height: 50px;
+            margin: 10px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .red { background-color: red; color: white; }
+        .orange { background-color: orange; color: white; }
+        .yellow { background-color: yellow; color: black; }
+        .green { background-color: green; color: white; }
+        .blue { background-color: blue; color: white; }
+        .purple { background-color: purple; color: white; }
+        .indigo { background-color: indigo; color: white; }
+        .pink { background-color: pink; color: white; }
+        .brown { background-color: brown; color: white; }
+        .gray { background-color: gray; color: white; }
+        .black { background-color: black; color: white; }
+        .white { background-color: white; color: black; }
+        #message {
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Color Code</h2>
+    <button class="button red" onclick="addColor('R')">Red</button>
+    <button class="button orange" onclick="addColor('O')">Orange</button>
+    <button class="button yellow" onclick="addColor('Y')">Yellow</button>
+    <button class="button green" onclick="addColor('G')">Green</button>
+    <button class="button blue" onclick="addColor('B')">Blue</button>
+    <button class="button purple" onclick="addColor('P')">Purple</button>
+    <button class="button indigo" onclick="addColor('I')">Indigo</button>
+    <button class="button pink" onclick="addColor('P')">Pink</button>
+    <button class="button brown" onclick="addColor('N')">Brown</button>
+    <button class="button gray" onclick="addColor('A')">Gray</button>
+    <button class="button black" onclick="addColor('K')">Black</button>
+    <button class="button white" onclick="addColor('W')">White</button>
+    <br>
+    <button onclick="clearCode()">Clear</button>
+    <button onclick="checkCode()">Unlock</button>
+    <p id="codeDisplay"></p>
+    <p id="message"></p>
+    <script>
+        const correctCode = 'RGBP'; // Set your color code here
+        let enteredCode = '';
+        
+        function addColor(color) {
+            enteredCode += color;
+            document.getElementById('codeDisplay').textContent = enteredCode;
+        }
+
+        function clearCode() {
+            enteredCode = '';
+            document.getElementById('codeDisplay').textContent = '';
+            document.getElementById('message').textContent = '';
+        }
+
+        function checkCode() {
+            const message = document.getElementById('message');
+            if (enteredCode === correctCode) {
+                message.textContent = 'Unlocked!';
+                message.style.color = 'green';
+                // Redirect to the next Genially slide
+                parent.window.location.href = 'your-genially-url-here'; // Set your Genially URL here
+            } else {
+                message.textContent = 'Incorrect Code';
+                message.style.color = '#d9534f';
+            }
+        }
+    </script>
+</body>
+</html>
