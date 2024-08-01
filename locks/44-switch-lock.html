@@ -13,14 +13,14 @@
             font-family: Arial, sans-serif;
         }
         .switch {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             margin: 5px;
             background-color: gray;
             display: inline-block;
             cursor: pointer;
             font-size: 24px;
-            line-height: 60px;
+            line-height: 50px;
             color: white;
             text-align: center;
         }
@@ -77,77 +77,6 @@
             const switchElement = document.getElementById('switch' + id);
             switchElement.classList.toggle('on');
             switchElement.textContent = switches[id]; // Update the display text to reflect the state
-        }
-
-        function checkSwitches() {
-            const message = document.getElementById('message');
-            if (JSON.stringify(switches.slice(1)) === JSON.stringify(correctPattern)) {
-                message.textContent = 'Unlocked!';
-                message.style.color = 'green';
-                // Redirect to the next Genially slide
-                parent.window.location.href = 'your-genially-url-here'; // Set your Genially URL here
-            } else {
-                message.textContent = 'Incorrect Pattern';
-                message.style.color = '#d9534f';
-            }
-        }
-    </script>
-</body>
-</html>
-
-        }
-        .grid {
-            display: inline-block;
-        }
-        button {
-            font-size: 24px;
-            padding: 10px;
-            margin: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #message {
-            color: #d9534f;
-        }
-    </style>
-</head>
-<body>
-    <h2>4x4 Switch Lock</h2>
-    <div class="grid">
-        <div class="switch" id="switch1" onclick="toggleSwitch(1)"></div>
-        <div class="switch" id="switch2" onclick="toggleSwitch(2)"></div>
-        <div class="switch" id="switch3" onclick="toggleSwitch(3)"></div>
-        <div class="switch" id="switch4" onclick="toggleSwitch(4)"></div>
-        <div class="switch" id="switch5" onclick="toggleSwitch(5)"></div>
-        <div class="switch" id="switch6" onclick="toggleSwitch(6)"></div>
-        <div class="switch" id="switch7" onclick="toggleSwitch(7)"></div>
-        <div class="switch" id="switch8" onclick="toggleSwitch(8)"></div>
-        <div class="switch" id="switch9" onclick="toggleSwitch(9)"></div>
-        <div class="switch" id="switch10" onclick="toggleSwitch(10)"></div>
-        <div class="switch" id="switch11" onclick="toggleSwitch(11)"></div>
-        <div class="switch" id="switch12" onclick="toggleSwitch(12)"></div>
-        <div class="switch" id="switch13" onclick="toggleSwitch(13)"></div>
-        <div class="switch" id="switch14" onclick="toggleSwitch(14)"></div>
-        <div class="switch" id="switch15" onclick="toggleSwitch(15)"></div>
-        <div class="switch" id="switch16" onclick="toggleSwitch(16)"></div>
-    </div>
-    <br>
-    <button onclick="checkSwitches()">Unlock</button>
-    <p id="message"></p>
-    <script>
-        const correctPattern = [1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1]; // Example pattern, adjust as needed
-        const switches = [];
-
-        for (let i = 1; i <= 16; i++) {
-            switches[i] = 0;
-        }
-
-        function toggleSwitch(id) {
-            switches[id] = switches[id] ? 0 : 1;
-            document.getElementById('switch' + id).classList.toggle('on');
         }
 
         function checkSwitches() {
